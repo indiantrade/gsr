@@ -1,165 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> GUJRATI TRADER - Learning Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gujarati Trader | Stock Market Education on Telegram</title>
+<meta name="description" content="Gujarati Trader is a Telegram community sharing stock market education: fundamentals, chart reading, technical analysis concepts and trading terminology.">
+<meta name="theme-color" content="#080D12">
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+:root{
+  --bg:#080D12;
+  --card:#101922;
+  --accent:#42D6A0;
+  --text:#FFFFFF;
+  --muted:#AAB4BE;
+  --line:rgba(170,180,190,.16);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  background:var(--bg);
+  color:var(--text);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+.wrap{width:100%;max-width:720px;margin:0 auto;padding:0 20px}
 
-  .card {
-    width: 85%;
-    max-width: 340px; 
-    background: #010a0f;
-    border: 1.5px solid #00d2ff;
-    border-radius: 35px;
-    padding: 20px 15px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-  }
+/* Header */
+header{padding:18px 0;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{
+  display:block;
+  width:auto;height:48px;max-width:96px;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
+.brand span{font-size:1.15rem;font-weight:700;letter-spacing:.01em}
 
-  .profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 3px solid #00d2ff;
-    object-fit: cover;
-    margin-top: -5px;
-    box-shadow: 0 0 15px #00d2ff;
-  }
+/* Main */
+main{flex:1 0 auto;padding:36px 0 28px}
+.hero h1{
+  margin:0 0 14px;
+  font-size:clamp(1.9rem,7.5vw,2.8rem);
+  line-height:1.15;
+  letter-spacing:-.02em;
+}
+.hero p{margin:0 0 26px;color:var(--muted);font-size:1.05rem;max-width:60ch}
+.cta{
+  display:flex;align-items:center;justify-content:center;
+  width:100%;max-width:340px;min-height:56px;
+  padding:14px 28px;
+  background:var(--accent);
+  color:#04281C;
+  font-size:1.1rem;font-weight:700;
+  text-decoration:none;
+  border-radius:14px;
+}
+.cta:hover{background:#5ae3b3}
+.cta:focus-visible,.footer-link:focus-visible{outline:3px solid #fff;outline-offset:3px}
 
-  h1 {
-    color: #fff;
-    font-size: 20px;
-    margin: 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+/* Highlights */
+.highlights{margin-top:40px}
+.highlights h2{margin:0 0 16px;font-size:1.2rem}
+.grid{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:1fr}
+.item{
+  display:flex;align-items:center;gap:14px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  font-weight:600;
+}
+.icon{
+  flex:0 0 40px;width:40px;height:40px;
+  display:grid;place-items:center;
+  border-radius:10px;
+  background:rgba(66,214,160,.1);
+  border:1px solid rgba(66,214,160,.28);
+}
+.icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
-  .features {
-    text-align: left;
-    margin: 0 auto;
-    width: 90%;
-  }
+/* Disclaimer */
+.disclaimer{
+  margin-top:36px;
+  padding:16px 18px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  border-radius:12px;
+  color:var(--muted);
+  font-size:.95rem;
+}
+.disclaimer p{margin:0}
 
-  .feature-item {
-    color: #ccc;
-    font-size: 13px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-  }
+/* Footer */
+footer{
+  flex-shrink:0;
+  margin-top:auto;
+  border-top:1px solid var(--line);
+  padding:22px 20px calc(22px + env(safe-area-inset-bottom,0px));
+  text-align:center;
+}
+.footer-link{
+  color:var(--muted);
+  font-size:.85rem;
+  text-decoration:none;
+  transition:color .2s;
+}
+.footer-link:hover{color:#d3dae0;text-decoration:underline}
 
-  .feature-item:last-child { border-bottom: none; }
-
-  .icon { margin-right: 12px; font-size: 16px; }
-
-  .join-text {
-    color: #eee;
-    font-size: 12px;
-    margin: 20px 0 12px;
-    font-weight: 300;
-  }
-
-  .telegram-btn {
-    display: block;
-    background: linear-gradient(90deg, #00d2ff 0%, #9247ff 100%);
-    color: white;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
-  }
-
-  .hindi-quote {
-    color: #bbb;
-    font-size: 13px;
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
-
-  .footer-box {
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    border-radius: 12px;
-    padding: 8px;
-    font-size: 11px;
-    color: #888;
-  }
-
-  /* Link styling for Agency */
-  .footer-box a { 
-    color: #00d2ff; 
-    font-weight: bold; 
-    text-decoration: none;
-  }
-
-  .disclaimer {
-    font-size: 9px;
-    color: #444;
-    margin-top: 12px;
-  }
+@media (min-width:600px){
+  .wrap{padding:0 28px}
+  main{padding:56px 0 40px}
+  .grid{grid-template-columns:1fr 1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 
-<div class="card">
-  <img src="https://i.ibb.co/GQYGXHF4/In-Shot-20260927-223648191.jpg" alt=" GUJRATI TRADER" class="profile-img">
-
-  <h1> GUJRATI TRADER</h1>
-
-  <div class="features">
-    <div class="feature-item"><span class="icon"></span> Learning & Educational Sessions</div>
-    <div class="feature-item"><span class="icon"></span> Market Concepts & Awareness</div>
-    <div class="feature-item"><span class="icon"></span> Chart Reading Concepts</div>
-    <div class="feature-item"><span class="icon"></span> Educational Case Discussions</div>
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="https://iili.io/nSnFqSp.jpg" alt="Gujarati Trader logo" width="96" height="48" decoding="async">
+      <span>Gujarati Trader</span>
+    </div>
   </div>
+</header>
 
-  <p class="join-text">Join our learning community and grow your knowledge</p>
+<main>
+  <div class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">Explore Stock Market Education</h1>
+      <p>Discover educational resources covering stock market fundamentals, chart reading, technical analysis concepts, and trading terminology through the Gujarati Trader Telegram community.</p>
+      <a class="cta" href="https://t.me/+I87mabAuI6NjN2E1" target="_blank" rel="noopener">Join Telegram</a>
+    </section>
 
-  <a href="https://t.me/+mc6hSYTJFoU0MmRl" class="telegram-btn">JOIN TELEGRAM</a>
+    <section class="highlights" aria-labelledby="learn-title">
+      <h2 id="learn-title">What you can learn</h2>
+      <ul class="grid">
+        <li class="item">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M9 21v-6h6v6"/></svg></span>
+          Stock Market Fundamentals
+        </li>
+        <li class="item">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 4 8-9"/><path d="M15 7h5v5"/></svg></span>
+          Technical Analysis Concepts
+        </li>
+        <li class="item">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4v16M6 8h0M4 8h4v7H4z"/><path d="M16 3v18M14 7h4v9h-4z"/></svg></span>
+          Chart Reading Education
+        </li>
+        <li class="item">
+          <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5"/><path d="M9 8h6"/></svg></span>
+          Stock Market Learning Resources
+        </li>
+      </ul>
+    </section>
 
-  <p class="hindi-quote">     ,     </p>
-
-  <div class="footer-box">
-    This Channel Advertise By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
+    <section class="disclaimer" aria-label="Disclaimer">
+      <p>Content is provided for educational and informational purposes only. It is not investment advice or a recommendation to buy or sell securities. Investments in securities are subject to market risks.</p>
+    </section>
   </div>
+</main>
 
-  <div class="disclaimer">
-    Terms | Privacy | Disclaimer <br>
-    This site is not part of Facebook™ or endorsed by Facebook™.
-  </div>
-</div>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2552096918611818');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2552096918611818&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+<footer>
+  <a class="footer-link" href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank" rel="noopener">Promoted By AD BUILD AGENCY</a>
+</footer>
+
 </body>
+  
 </html>
